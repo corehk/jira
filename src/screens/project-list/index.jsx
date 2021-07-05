@@ -3,13 +3,11 @@ import { SearchPanel } from './search-panel';
 import React, { useEffect, useState } from "react"
 import { cleanObject } from 'utils';
 import * as qs from 'qs';
-const apiUrl = process.env.REACT_APP_API_URL
 
-
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectListScreen = () => {
     const [users, setUsers] = useState([])
-
     const [list, setList] = useState([])
     const [param, setParam] = useState({
         name: '',
