@@ -27,7 +27,6 @@ export const useMount = (callback: () => void) => {
 
 export const useDebounce =<V> (value: V, delay?: number) => {
     const [debouncedValue, setDebouncedValue] = useState(value)
-
     useEffect(() => {
         // 每次在value变化以后，设置一个定时器
         const timeout = setTimeout(() => {
@@ -39,3 +38,18 @@ export const useDebounce =<V> (value: V, delay?: number) => {
 
     return debouncedValue
 }
+
+// export const useArray =<T>(initialArray:T[])=>{
+//     const [value,setValue]=useState(initialArray)
+//     return{
+//         value,
+//         setValue,
+//         add:(item:T)=>setValue([...value,item]),
+//         clear:()=>setValue([]),
+//         removeIndex:()=>{
+//             const copy=[...value]
+//             copy.splice(index,1)
+//             setValue(copy)
+//         }
+//     }
+// }
