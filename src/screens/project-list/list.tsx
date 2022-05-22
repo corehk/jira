@@ -1,6 +1,20 @@
-import React from 'react';
+import React from "react";
+import { User } from "screens/project-list/search-panel";
 
-export const List = ({ list, users }) => {
+interface Project {
+  id: string;
+  name: string;
+  pin: string;
+  personId: string;
+  organizationId: string;
+}
+
+interface ListProps {
+  list: Project[];
+  users: User[];
+}
+
+export const List: React.FC<ListProps> = ({ list, users }) => {
   return (
     <table>
       <thead>
@@ -14,7 +28,7 @@ export const List = ({ list, users }) => {
               <td>{project.name}</td>
               <td>
                 {users.find((user) => user.id === project.personId)?.name ||
-                  '未知'}
+                  "未知"}
               </td>
             </tr>
           ))}
