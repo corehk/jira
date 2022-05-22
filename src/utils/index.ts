@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value: number): boolean =>
+export const isFalsy = (value: unknown): boolean =>
   value === 0 ? false : !value;
 
 //在一个函数里，改变传入对象本身时不好的
@@ -25,7 +25,7 @@ export const useMount = (callback: () => void) => {
 };
 
 // TODO:any改为泛型
-export const useDebounce = (value: unknown, delay?: number): any => {
+export const useDebounce = <T>(value: T, delay?: number): T => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   //每次在value之后，设置一个定时器
