@@ -1,5 +1,4 @@
 import React from "react";
-import * as qs from "qs";
 import { useAuth } from "context/auto-index";
 
 export const LoginScreen = () => {
