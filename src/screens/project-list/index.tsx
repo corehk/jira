@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { cleanObject, useDebounce, useMount } from "utils";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
@@ -12,10 +12,10 @@ export const ProjectListScree = () => {
     personId: "",
   });
   const debouncedParam = useDebounce(param, 200);
-  const client = useHttp();
+  const client = useMemo(useHttp, []);
   useEffect(() => {
     client("projects", { data: cleanObject(debouncedParam) }).then(setList);
-  }, [debouncedParam]);
+  }, [debouncedParam, client]);
 
   useMount(() => {
     client("users").then(setUsers);
